@@ -10,4 +10,22 @@ package com.italo.trainningmertins.conta;
  */
 public class Conta {
     
+    String numConta;
+    String agencia;
+    String cvv;
+    boolean especial;
+    double limiteEspecial;
+    double saldo;
+    boolean emprestimoAtivo;
+    double valorEspecialUsado;
+    String senha;
+    
+    boolean realizarSaque(double quantidadeSaque){
+        
+        if(saldo >= quantidadeSaque){
+            saldo -= quantidadeSaque;
+            return true;
+        }
+    }
+    
 }
