@@ -47,6 +47,51 @@ public class AppAccount {
     public static void main(String[] args) {
         Account account = new Account();
         
+        Scanner scan = new Scanner(System.in);
+        String loanSituacion;
+        String situacionSpecial;
+        
+        soon();
+        account.password = newPassword();
+        account.accountNumber = "188988";
+        account.agency = "123";
+        account.cvv = "199";
+        account.activeLoan = true;
+        account.special = true;
+        account.specialLimit = 500.0;
+        account.balance = -10;
+        account.specialValueUsed = 0;
+        boolean aproved = false;
+        
+        if(account.activeLoan){
+            loanSituacion = "Active Loan";
+        } else {
+            loanSituacion = "Dormant Loan";
+        }
+        if(account.special){
+            situacionSpecial = "Special Account Actived";
+        } else {
+            situacionSpecial = "Special Account Dormant";
+        }
+        
+        while (!aproved){
+            System.out.println("To view your account details, enter your password: ");
+            String password = scan.next();
+            
+            if(password.equals(account.password)){
+                aproved = true;
+                System.out.println("Password PASS");
+                account.checkAccountNumber();
+                account.checkAgency();
+                account.checkCvv();
+                account.checkSpecialLimit();
+                account.checkBalance();
+                System.out.println("Account Situacion: " + situacionSpecial);
+                System.out.println("Loan Situacion: " + loanSituacion);
+            }
+        }
+        
+        
     }
 
 
