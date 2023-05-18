@@ -110,8 +110,6 @@ public class AppAccount {
                 System.out.println("Thank You");
                 break;
             }
-            
-         
 
         }
 
