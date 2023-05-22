@@ -7,7 +7,7 @@ public class TesteException {
 
     public static void main(String[] args) {
 
-        int c =  4;
+        int c =  0;
 
         try {
 
