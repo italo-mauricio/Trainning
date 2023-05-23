@@ -40,6 +40,7 @@ public class Janela extends JFrame {
         this.txtResultado.setEditable(false);
 
         this.botao.addActionListener(new ActionListener() {
+            
             public void actionPerformed(ActionEvent e) {
                 double num1 = Double.parseDouble(txtNumero1.getText());
                 double num2 = Double.parseDouble(txtNumero2.getText());
