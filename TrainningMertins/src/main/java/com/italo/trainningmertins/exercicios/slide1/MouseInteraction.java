@@ -31,6 +31,9 @@ public class MouseInteraction extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         txtArea.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtAreaMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 txtAreaMouseEntered(evt);
             }
@@ -66,6 +69,10 @@ public class MouseInteraction extends javax.swing.JFrame {
     private void txtAreaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAreaMouseExited
         txtArea.setText(("Saiu"));        // TODO add your handling code here:
     }//GEN-LAST:event_txtAreaMouseExited
+
+    private void txtAreaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAreaMouseClicked
+        txtArea.setText(("Clicou"));   
+    }//GEN-LAST:event_txtAreaMouseClicked
 
     /**
      * @param args the command line arguments
