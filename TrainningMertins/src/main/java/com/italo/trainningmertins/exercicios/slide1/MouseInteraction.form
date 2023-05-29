@@ -44,6 +44,7 @@
     <Component class="javax.swing.JTextField" name="txtArea">
       <Events>
         <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtAreaMouseEntered"/>
+        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtAreaMouseExited"/>
       </Events>
     </Component>
   </SubComponents>

@@ -34,6 +34,9 @@ public class MouseInteraction extends javax.swing.JFrame {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 txtAreaMouseEntered(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txtAreaMouseExited(evt);
+            }
         });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -59,6 +62,10 @@ public class MouseInteraction extends javax.swing.JFrame {
     private void txtAreaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAreaMouseEntered
         txtArea.setText("Entrou");
     }//GEN-LAST:event_txtAreaMouseEntered
+
+    private void txtAreaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAreaMouseExited
+        txtArea.setText(("Saiu"));        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAreaMouseExited
 
     /**
      * @param args the command line arguments
