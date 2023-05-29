@@ -27,6 +27,7 @@ public class MouseInteraction extends javax.swing.JFrame {
     private void initComponents() {
 
         txtArea = new javax.swing.JTextField();
+        buttonClick = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,21 +43,35 @@ public class MouseInteraction extends javax.swing.JFrame {
             }
         });
 
+        buttonClick.setText("clique");
+        buttonClick.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonClickMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(154, 154, 154)
-                .addComponent(txtArea, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(152, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(154, 154, 154)
+                        .addComponent(buttonClick))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(99, 99, 99)
+                        .addComponent(txtArea, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(111, 111, 111)
+                .addGap(110, 110, 110)
                 .addComponent(txtArea, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(buttonClick)
+                .addContainerGap(105, Short.MAX_VALUE))
         );
 
         pack();
@@ -73,6 +88,10 @@ public class MouseInteraction extends javax.swing.JFrame {
     private void txtAreaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAreaMouseClicked
         txtArea.setText(("Clicou"));   
     }//GEN-LAST:event_txtAreaMouseClicked
+
+    private void buttonClickMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonClickMouseClicked
+        txtArea.setText("Clicou com o botão");
+    }//GEN-LAST:event_buttonClickMouseClicked
 
     /**
      * @param args the command line arguments
@@ -110,6 +129,7 @@ public class MouseInteraction extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonClick;
     private javax.swing.JTextField txtArea;
     // End of variables declaration//GEN-END:variables
 }
