@@ -10,12 +10,11 @@ package swing.funcionarios;
  */
 public class Funcionarios extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Funcionarios
-     */
+    
+    ModelFuncionarios model = new ModelFuncionarios();
+    
     public Funcionarios() {
         initComponents();
-        ModelFuncionarios model = new ModelFuncionarios();
         table.setModel(model);  
     }
 
@@ -102,6 +101,11 @@ public class Funcionarios extends javax.swing.JFrame {
         jLabel5.setText("Função");
 
         btnCadastrar.setText("Cadastrar");
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
 
         btnAlterar.setText("Alterar");
 
@@ -191,6 +195,12 @@ public class Funcionarios extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+         String nome = txtNome.getText();
+         String cpf = txtCpf.getText();
+         
+    }//GEN-LAST:event_btnCadastrarActionPerformed
 
     /**
      * @param args the command line arguments

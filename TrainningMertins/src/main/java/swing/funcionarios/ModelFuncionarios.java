@@ -16,6 +16,11 @@ public class ModelFuncionarios extends AbstractTableModel{
     ArrayList<Funcionario> funcionarios = new ArrayList();
     
     String[] colunas = {"Nome", "CPF", "Salario", "Função"};
+    
+    public void cadastrarFuncionario(Funcionario f){
+        funcionarios.add(f);
+        this.fireTableDataChanged();
+    }
 
     @Override
     public int getRowCount() {
