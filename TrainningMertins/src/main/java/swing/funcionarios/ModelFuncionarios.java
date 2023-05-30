@@ -13,11 +13,13 @@ import javax.swing.table.AbstractTableModel;
  */
 public class ModelFuncionarios extends AbstractTableModel{    
     
-    ArrayList<Object> funcionarios = new ArrayList();
+    ArrayList<Funcionario> funcionarios = new ArrayList();
+    
+    String[] colunas = {"Nome", "CPF", "Salario", "Função"};
 
     @Override
     public int getRowCount() {
-        
+        return funcionarios.size();
     }
 
     @Override
