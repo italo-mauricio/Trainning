@@ -201,9 +201,8 @@ public class Funcionarios extends javax.swing.JFrame {
          String cpf = txtCpf.getText();
          double salario = Double.parseDouble(txtSalario.getText());
          String funcao = txtFuncao.getText();
-         
+       
          Funcionario f = new Funcionario(nome, cpf, salario, funcao);
-         
          this.model.cadastrarFuncionario(f);
          clean();
          
@@ -214,7 +213,6 @@ public class Funcionarios extends javax.swing.JFrame {
         txtCpf.setText("");
         txtSalario.setText("");
         txtFuncao.setText("");
-        
     }
     /**
      * @param args the command line arguments
