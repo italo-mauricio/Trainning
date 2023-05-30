@@ -199,6 +199,12 @@ public class Funcionarios extends javax.swing.JFrame {
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
          String nome = txtNome.getText();
          String cpf = txtCpf.getText();
+         double salario = Double.parseDouble(txtSalario.getText());
+         String funcao = txtFuncao.getText();
+         
+         Funcionario f = new Funcionario(nome, cpf, salario, funcao);
+         
+         this.model.cadastrarFuncionario(f);
          
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
