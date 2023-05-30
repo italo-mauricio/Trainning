@@ -205,9 +205,17 @@ public class Funcionarios extends javax.swing.JFrame {
          Funcionario f = new Funcionario(nome, cpf, salario, funcao);
          
          this.model.cadastrarFuncionario(f);
+         clean();
          
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
+    public void clean(){
+        txtNome.setText("");
+        txtCpf.setText("");
+        txtSalario.setText("");
+        txtFuncao.setText("");
+        
+    }
     /**
      * @param args the command line arguments
      */
