@@ -214,6 +214,10 @@ public class Funcionarios extends javax.swing.JFrame {
         txtSalario.setText("");
         txtFuncao.setText("");
     }
+    
+    public boolean validarCampos(){
+        
+    }
     /**
      * @param args the command line arguments
      */
