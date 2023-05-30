@@ -14,9 +14,9 @@ public class Funcionarios extends javax.swing.JFrame {
      * Creates new form Funcionarios
      */
     public Funcionarios() {
-        ModelFuncionarios model = new ModelFuncionarios();
-        table.setModel(model);
         initComponents();
+        ModelFuncionarios model = new ModelFuncionarios();
+        table.setModel(model);  
     }
 
     /**
