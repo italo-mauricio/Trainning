@@ -24,12 +24,27 @@ public class ModelFuncionarios extends AbstractTableModel{
 
     @Override
     public int getColumnCount() {
-      
+      return colunas.length;
+    }
+    
+    @Override
+    public String getColumnName(int column){
+        return colunas[column];
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-     
+        
+       if(columnIndex == 0){
+           return funcionarios.get(rowIndex).getNome();
+       } else if (columnIndex == 1){
+           return funcionarios.get(rowIndex).getCpf();
+       } else if (columnIndex == 2){
+           return funcionarios.get(rowIndex).getSalario();
+       } else if (columnIndex == 3){
+           return funcionarios.get(rowIndex).getFuncao();
+       } else{
+           return null;
+       }   
     }
-    
 }

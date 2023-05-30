@@ -14,6 +14,8 @@ public class Funcionarios extends javax.swing.JFrame {
      * Creates new form Funcionarios
      */
     public Funcionarios() {
+        ModelFuncionarios model = new ModelFuncionarios();
+        table.setModel(model);
         initComponents();
     }
 
@@ -45,7 +47,7 @@ public class Funcionarios extends javax.swing.JFrame {
         btnAlterar = new javax.swing.JButton();
         btnDeletar = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        table = new javax.swing.JTable();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -105,7 +107,7 @@ public class Funcionarios extends javax.swing.JFrame {
 
         btnDeletar.setText("Deletar");
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -116,7 +118,7 @@ public class Funcionarios extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane5.setViewportView(jTable4);
+        jScrollPane5.setViewportView(table);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -241,7 +243,7 @@ public class Funcionarios extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
+    private javax.swing.JTable table;
     private javax.swing.JTextField txtCpf;
     private javax.swing.JTextField txtFuncao;
     private javax.swing.JTextField txtNome;
