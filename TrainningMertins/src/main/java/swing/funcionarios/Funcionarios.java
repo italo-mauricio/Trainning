@@ -4,6 +4,8 @@
  */
 package swing.funcionarios;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author italo
@@ -198,13 +200,17 @@ public class Funcionarios extends javax.swing.JFrame {
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
          String nome = txtNome.getText();
-         String cpf = txtCpf.getText();
-         double salario = Double.parseDouble(txtSalario.getText());
-         String funcao = txtFuncao.getText();
-       
-         Funcionario f = new Funcionario(nome, cpf, salario, funcao);
-         this.model.cadastrarFuncionario(f);
-         clean();
+        String cpf = txtCpf.getText();
+        String salario = txtSalario.getText();
+        String funcao = txtFuncao.getText();
+
+        if (validarCampos(nome, cpf, salario, funcao)) {
+            double salarioDouble = Double.parseDouble(salario);
+            Funcionario f = new Funcionario(nome, cpf, salarioDouble, funcao);
+            this.model.cadastrarFuncionario(f);
+            clean();
+        }
+
          
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
@@ -215,9 +221,23 @@ public class Funcionarios extends javax.swing.JFrame {
         txtFuncao.setText("");
     }
     
-    public boolean validarCampos(){
-        
+   public boolean validarCampos(String nome, String cpf, String salario, String funcao) {
+    if (nome.trim().isEmpty() || cpf.trim().isEmpty() || salario.trim().isEmpty() || !isDouble(salario) || funcao.trim().isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Campos não preenchidos");
+        return false;
     }
+    return true;
+}
+
+public boolean isDouble(String value) {
+    try {
+        Double.parseDouble(value);
+        return true;
+    } catch (NumberFormatException e) {
+        return false;
+    }
+}
+
     /**
      * @param args the command line arguments
      */
