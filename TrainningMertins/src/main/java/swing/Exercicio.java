@@ -11,7 +11,6 @@ import java.awt.event.KeyEvent;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 
-
 /**
  *
  * @author italo
@@ -47,9 +46,9 @@ public class Exercicio extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
         jButton5 = new javax.swing.JButton();
+        combo1 = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         CaixaTexto = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -74,13 +73,13 @@ public class Exercicio extends javax.swing.JFrame {
 
         jToolBar1.setRollover(true);
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Aba1");
         jButton1.setFocusable(false);
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jButton1);
 
-        jButton2.setText("jButton2");
+        jButton2.setText("Aba2");
         jButton2.setFocusable(false);
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -107,9 +106,6 @@ public class Exercicio extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Combo 2");
 
-        jComboBox1.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton5.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
@@ -118,6 +114,13 @@ public class Exercicio extends javax.swing.JFrame {
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
+            }
+        });
+
+        combo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combo1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                combo1MouseClicked(evt);
             }
         });
 
@@ -134,8 +137,8 @@ public class Exercicio extends javax.swing.JFrame {
                             .addComponent(jLabel3))
                         .addGap(33, 33, 33)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBox1, 0, 186, Short.MAX_VALUE)
-                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jComboBox2, 0, 186, Short.MAX_VALUE)
+                            .addComponent(combo1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(302, 302, 302)
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -144,11 +147,11 @@ public class Exercicio extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(76, 76, 76)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
+                    .addComponent(combo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -296,7 +299,19 @@ public class Exercicio extends javax.swing.JFrame {
         evt.setKeyChar(ch);
     }//GEN-LAST:event_CaixaTextoKeyTyped
 
-    private JComboBox<String> comboBox;
+    private void combo1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_combo1MouseClicked
+        combo1.addActionListener(e -> {
+        DefaultComboBoxModel<String> model = (DefaultComboBoxModel<String>) combo1.getModel();
+        model.removeAllElements(); // Remove todos os itens do combo box
+
+        // Adicione os novos itens ao combo box
+        model.addElement("Nova Opção 1");
+        model.addElement("Nova Opção 2");
+        model.addElement("Nova Opção 3");
+});
+    }//GEN-LAST:event_combo1MouseClicked
+
+
     /**
      * @param args the command line arguments
      */
@@ -328,7 +343,7 @@ public class Exercicio extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Exercicio().setVisible(true);
-                
+
             }
         });
     }
@@ -336,11 +351,11 @@ public class Exercicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CaixaTexto;
     private javax.swing.ButtonGroup buttonGroup;
+    private javax.swing.JComboBox<String> combo1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton5;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
