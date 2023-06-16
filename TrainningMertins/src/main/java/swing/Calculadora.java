@@ -43,6 +43,12 @@ public class Calculadora extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
+        text5 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        text6 = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        result2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,10 +60,15 @@ public class Calculadora extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("somar");
+        jButton1.setText("Multi");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
         jButton1.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -74,7 +85,7 @@ public class Calculadora extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("+");
+        jLabel3.setText("%");
 
         jLabel4.setText("Número 1");
 
@@ -92,6 +103,44 @@ public class Calculadora extends javax.swing.JFrame {
                 jTextField4KeyPressed(evt);
             }
         });
+
+        text5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                text5ActionPerformed(evt);
+            }
+        });
+        text5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                text5KeyPressed(evt);
+            }
+        });
+
+        jLabel7.setText("*");
+
+        text6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                text6ActionPerformed(evt);
+            }
+        });
+        text6.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                text6KeyPressed(evt);
+            }
+        });
+
+        jButton2.setText("Dividir");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("=");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -116,16 +165,28 @@ public class Calculadora extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton1)
-                                .addGap(18, 18, 18)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
-                        .addGap(23, 23, 23)))
-                .addContainerGap(155, Short.MAX_VALUE))
+                            .addComponent(jLabel6)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(17, 17, 17))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(text5, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(text6, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(result2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(159, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,118 +206,233 @@ public class Calculadora extends javax.swing.JFrame {
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(245, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(text5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(jButton2)
+                    .addComponent(jLabel8)
+                    .addComponent(result2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(text6, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(205, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-       
+
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jTextField4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyPressed
         ((AbstractDocument) jTextField4.getDocument()).setDocumentFilter(new DocumentFilter() {
-        @Override
-        public void insertString(FilterBypass fb, int offset, String text, AttributeSet attr)
-                throws BadLocationException {
-            StringBuilder sb = new StringBuilder(text.length());
-            for (int i = 0; i < text.length(); i++) {
-                char c = text.charAt(i);
-                if (Character.isDigit(c)) {
-                    sb.append(c);
+            @Override
+            public void insertString(FilterBypass fb, int offset, String text, AttributeSet attr)
+                    throws BadLocationException {
+                StringBuilder sb = new StringBuilder(text.length());
+                for (int i = 0; i < text.length(); i++) {
+                    char c = text.charAt(i);
+                    if (Character.isDigit(c)) {
+                        sb.append(c);
+                    }
                 }
+                super.insertString(fb, offset, sb.toString(), attr);
             }
-            super.insertString(fb, offset, sb.toString(), attr);
-        }
 
-        @Override
-        public void replace(FilterBypass fb, int offset, int length, String text, AttributeSet attrs)
-                throws BadLocationException {
-            if (text == null) {
-                super.replace(fb, offset, length, text, attrs);
-                return;
-            }
-            StringBuilder sb = new StringBuilder(text.length());
-            for (int i = 0; i < text.length(); i++) {
-                char c = text.charAt(i);
-                if (Character.isDigit(c)) {
-                    sb.append(c);
+            @Override
+            public void replace(FilterBypass fb, int offset, int length, String text, AttributeSet attrs)
+                    throws BadLocationException {
+                if (text == null) {
+                    super.replace(fb, offset, length, text, attrs);
+                    return;
                 }
+                StringBuilder sb = new StringBuilder(text.length());
+                for (int i = 0; i < text.length(); i++) {
+                    char c = text.charAt(i);
+                    if (Character.isDigit(c)) {
+                        sb.append(c);
+                    }
+                }
+                super.replace(fb, offset, length, sb.toString(), attrs);
             }
-            super.replace(fb, offset, length, sb.toString(), attrs);
-        }
-    });
-        
+        });
+
     }//GEN-LAST:event_jTextField4KeyPressed
 
     private void jTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyPressed
-               ((AbstractDocument) jTextField2.getDocument()).setDocumentFilter(new DocumentFilter() {
-        @Override
-        public void insertString(DocumentFilter.FilterBypass fb, int offset, String text, AttributeSet attr)
-                throws BadLocationException {
-            StringBuilder sb = new StringBuilder(text.length());
-            for (int i = 0; i < text.length(); i++) {
-                char c = text.charAt(i);
-                if (Character.isDigit(c)) {
-                    sb.append(c);
+        ((AbstractDocument) jTextField2.getDocument()).setDocumentFilter(new DocumentFilter() {
+            @Override
+            public void insertString(DocumentFilter.FilterBypass fb, int offset, String text, AttributeSet attr)
+                    throws BadLocationException {
+                StringBuilder sb = new StringBuilder(text.length());
+                for (int i = 0; i < text.length(); i++) {
+                    char c = text.charAt(i);
+                    if (Character.isDigit(c)) {
+                        sb.append(c);
+                    }
                 }
+                super.insertString(fb, offset, sb.toString(), attr);
             }
-            super.insertString(fb, offset, sb.toString(), attr);
-        }
 
-        @Override
-        public void replace(DocumentFilter.FilterBypass fb, int offset, int length, String text, AttributeSet attrs)
-                throws BadLocationException {
-            if (text == null) {
-                super.replace(fb, offset, length, text, attrs);
-                return;
-            }
-            StringBuilder sb = new StringBuilder(text.length());
-            for (int i = 0; i < text.length(); i++) {
-                char c = text.charAt(i);
-                if (Character.isDigit(c)) {
-                    sb.append(c);
+            @Override
+            public void replace(DocumentFilter.FilterBypass fb, int offset, int length, String text, AttributeSet attrs)
+                    throws BadLocationException {
+                if (text == null) {
+                    super.replace(fb, offset, length, text, attrs);
+                    return;
                 }
+                StringBuilder sb = new StringBuilder(text.length());
+                for (int i = 0; i < text.length(); i++) {
+                    char c = text.charAt(i);
+                    if (Character.isDigit(c)) {
+                        sb.append(c);
+                    }
+                }
+                super.replace(fb, offset, length, sb.toString(), attrs);
             }
-            super.replace(fb, offset, length, sb.toString(), attrs);
-        }
-    });
+        });
     }//GEN-LAST:event_jTextField2KeyPressed
 
     private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
-            
+
     }//GEN-LAST:event_jButton1KeyPressed
 
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
- 
+
 
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-            String text1 = jTextField4.getText();
-    String text2 = jTextField2.getText();
+        String text1 = jTextField4.getText();
+        String text2 = jTextField2.getText();
 
-    int value1 = 0;
-    int value2 = 0;
+        double value1 = 0;
+        double value2 = 0;
 
-    try {
-        value1 = Integer.parseInt(text1);
-    } catch (NumberFormatException e) {
-        // O valor do jTextField4 não é um número válido
-    }
+        try {
+            value1 = Double.parseDouble(text1);
+        } catch (NumberFormatException e) {
+            // O valor do jTextField4 não é um número válido
+        }
 
-    try {
-        value2 = Integer.parseInt(text2);
-    } catch (NumberFormatException e) {
-        // O valor do jTextField2 não é um número válido
-    }
+        try {
+            value2 = Double.parseDouble(text2);
+        } catch (NumberFormatException e) {
+            // O valor do jTextField2 não é um número válido
+        }
 
-    int result = value1 + value2;
+        double result = value1 / value2;
 
-    jTextField3.setText(Integer.toString(result));                                  
+        jTextField3.setText(Double.toString(result));
     }//GEN-LAST:event_jButton1MouseClicked
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        String text1 = text5.getText();
+        String text2 = text6.getText();
+
+        int value1 = 0;
+        int value2 = 0;
+
+        try {
+            value1 = Integer.parseInt(text1);
+        } catch (NumberFormatException e) {
+            // O valor do jTextField4 não é um número válido
+        }
+
+        try {
+            value2 = Integer.parseInt(text2);
+        } catch (NumberFormatException e) {
+            // O valor do jTextField2 não é um número válido
+        }
+
+        int result = value1 * value2;
+
+        result2.setText(Integer.toString(result));
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void text5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text5ActionPerformed
+
+    }//GEN-LAST:event_text5ActionPerformed
+
+    private void text6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text6ActionPerformed
+
+    }//GEN-LAST:event_text6ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void text5KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text5KeyPressed
+        ((AbstractDocument) text5.getDocument()).setDocumentFilter(new DocumentFilter() {
+            @Override
+            public void insertString(DocumentFilter.FilterBypass fb, int offset, String text, AttributeSet attr)
+                    throws BadLocationException {
+                StringBuilder sb = new StringBuilder(text.length());
+                for (int i = 0; i < text.length(); i++) {
+                    char c = text.charAt(i);
+                    if (Character.isDigit(c)) {
+                        sb.append(c);
+                    }
+                }
+                super.insertString(fb, offset, sb.toString(), attr);
+            }
+
+            @Override
+            public void replace(DocumentFilter.FilterBypass fb, int offset, int length, String text, AttributeSet attrs)
+                    throws BadLocationException {
+                if (text == null) {
+                    super.replace(fb, offset, length, text, attrs);
+                    return;
+                }
+                StringBuilder sb = new StringBuilder(text.length());
+                for (int i = 0; i < text.length(); i++) {
+                    char c = text.charAt(i);
+                    if (Character.isDigit(c)) {
+                        sb.append(c);
+                    }
+                }
+                super.replace(fb, offset, length, sb.toString(), attrs);
+            }
+        });
+    }//GEN-LAST:event_text5KeyPressed
+
+    private void text6KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text6KeyPressed
+        ((AbstractDocument) text6.getDocument()).setDocumentFilter(new DocumentFilter() {
+            @Override
+            public void insertString(DocumentFilter.FilterBypass fb, int offset, String text, AttributeSet attr)
+                    throws BadLocationException {
+                StringBuilder sb = new StringBuilder(text.length());
+                for (int i = 0; i < text.length(); i++) {
+                    char c = text.charAt(i);
+                    if (Character.isDigit(c)) {
+                        sb.append(c);
+                    }
+                }
+                super.insertString(fb, offset, sb.toString(), attr);
+            }
+
+            @Override
+            public void replace(DocumentFilter.FilterBypass fb, int offset, int length, String text, AttributeSet attrs)
+                    throws BadLocationException {
+                if (text == null) {
+                    super.replace(fb, offset, length, text, attrs);
+                    return;
+                }
+                StringBuilder sb = new StringBuilder(text.length());
+                for (int i = 0; i < text.length(); i++) {
+                    char c = text.charAt(i);
+                    if (Character.isDigit(c)) {
+                        sb.append(c);
+                    }
+                }
+                super.replace(fb, offset, length, sb.toString(), attrs);
+            }
+        });
+    }//GEN-LAST:event_text6KeyPressed
 
     /**
      * @param args the command line arguments
@@ -295,14 +471,20 @@ public class Calculadora extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField result2;
+    private javax.swing.JTextField text5;
+    private javax.swing.JTextField text6;
     // End of variables declaration//GEN-END:variables
 }
