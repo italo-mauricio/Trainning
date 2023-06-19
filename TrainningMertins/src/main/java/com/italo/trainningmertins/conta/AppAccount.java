@@ -51,21 +51,14 @@ public class AppAccount {
         String loanSituacion;
         String situacionSpecial;
 
-        account.checkAccountNumber();
-        account.setAgency(loanSituacion);
-        account.checkAgency();
-        account.checkSpecialLimit();
-        account.specialLimit = 500.0;
-        account.balance = -10;
-        account.specialValueUsed = 0;
         boolean aproved = false;
 
-        if (account.activeLoan) {
+        if (account.isActiveLoan()) {
             loanSituacion = "Active Loan";
         } else {
             loanSituacion = "Dormant Loan";
         }
-        if (account.special) {
+        if (account.isSpecial()) {
             situacionSpecial = "Special Account Actived";
         } else {
             situacionSpecial = "Special Account Dormant";
@@ -87,7 +80,7 @@ public class AppAccount {
                 System.out.println("Loan Situacion: " + loanSituacion);
                 account.setPassword(password);
             }
-
+            System.out.println(account.getPassword());
             boolean withdrawMade = account.withdraw(400);
             System.out.println("Do you want to withdraw 400 reais?: ");
             String response = scan.next();
