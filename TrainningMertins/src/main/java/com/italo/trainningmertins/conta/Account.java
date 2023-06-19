@@ -9,65 +9,137 @@ package com.italo.trainningmertins.conta;
  * @author italo
  */
 public class Account {
-    
-    String accountNumber;
-    String agency;
-    String cvv;
-    boolean special;
-    double specialLimit;
-    double balance;
-    boolean activeLoan;
-    double specialValueUsed;
-    String password;
-    
-    boolean withdraw(double withdrawAmount){
+
+    private String accountNumber;
+    private String agency;
+    private String cvv;
+    private boolean special;
+    private double specialLimit;
+    private double balance;
+    private boolean activeLoan;
+    private double specialValueUsed;
+    private String password;
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public String getAgency() {
+        return agency;
+    }
+
+    public void setAgency(String agency) {
+        this.agency = agency;
+    }
+
+    public String getCvv() {
+        return cvv;
+    }
+
+    public void setCvv(String cvv) {
+        this.cvv = cvv;
+    }
+
+    public boolean isSpecial() {
+        return special;
+    }
+
+    public void setSpecial(boolean special) {
+        this.special = special;
+    }
+
+    public double getSpecialLimit() {
+        return specialLimit;
+    }
+
+    public void setSpecialLimit(double specialLimit) {
+        this.specialLimit = specialLimit;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public boolean isActiveLoan() {
+        return activeLoan;
+    }
+
+    public void setActiveLoan(boolean activeLoan) {
+        this.activeLoan = activeLoan;
+    }
+
+    public double getSpecialValueUsed() {
+        return specialValueUsed;
+    }
+
+    public void setSpecialValueUsed(double specialValueUsed) {
+        this.specialValueUsed = specialValueUsed;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    boolean withdraw(double withdrawAmount) {
         // tem saldo na conta?
-        if (balance >= withdrawAmount){
+        if (balance >= withdrawAmount) {
             balance -= withdrawAmount;
             return true;
-        }else {
+        } else {
             // não tem saldo na conta
-            if (special){
+            if (special) {
                 // verificar se o limite especial tem saldo
                 double limit = specialLimit + balance;
-                if(limit >= withdrawAmount){
+                if (limit >= withdrawAmount) {
                     balance -= withdrawAmount;
                     return true;
-                }else{
+                } else {
                     return false;
                 }
-            }else{
+            } else {
                 return false;   // não é conta espcial, não tem saldo suficiente
             }
         }
     }
-    
-     void deposit (double amountDeposited){
+
+    void deposit(double amountDeposited) {
         balance += amountDeposited;
     }
 
-    void checkBalance(){
+    void checkBalance() {
         System.out.println("Account Balance: " + balance);
     }
 
-    void checkSpecialLimit(){
+    void checkSpecialLimit() {
         System.out.println("Special Limit: " + specialLimit);
     }
 
-    void checkCvv(){
+    void checkCvv() {
         System.out.println("CVV: " + cvv);
     }
 
-    void checkAgency(){
+    void checkAgency() {
         System.out.println("Agency: " + agency);
     }
 
-    void checkAccountNumber(){
+    void checkAccountNumber() {
         System.out.println("Account Number: " + accountNumber);
     }
 
-    boolean checkOverdraftUse(){
+    boolean checkOverdraftUse() {
         return balance < 0;
     }
-    
+
 }

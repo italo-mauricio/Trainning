@@ -51,13 +51,10 @@ public class AppAccount {
         String loanSituacion;
         String situacionSpecial;
 
-        soon();
-        account.password = newPassword();
-        account.accountNumber = "188988";
-        account.agency = "123";
-        account.cvv = "199";
-        account.activeLoan = true;
-        account.special = true;
+        account.checkAccountNumber();
+        account.setAgency(loanSituacion);
+        account.checkAgency();
+        account.checkSpecialLimit();
         account.specialLimit = 500.0;
         account.balance = -10;
         account.specialValueUsed = 0;
@@ -78,7 +75,7 @@ public class AppAccount {
             System.out.println("To view your account details, enter your password: ");
             String password = scan.next();
 
-            if (password.equals(account.password)) {
+            if (password.equals(aproved)) {
                 aproved = true;
                 System.out.println("Password PASS");
                 account.checkAccountNumber();
@@ -88,6 +85,7 @@ public class AppAccount {
                 account.checkBalance();
                 System.out.println("Account Situacion: " + situacionSpecial);
                 System.out.println("Loan Situacion: " + loanSituacion);
+                account.setPassword(password);
             }
 
             boolean withdrawMade = account.withdraw(400);
