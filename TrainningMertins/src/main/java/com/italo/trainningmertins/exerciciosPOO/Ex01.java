@@ -4,12 +4,15 @@
  */
 package com.italo.trainningmertins.exerciciosPOO;
 
+import java.util.Date;
+
 /**
  *
  * @author italo
  */
 public class Ex01 {
     private static void method() {
+        System.out.println("teste");
         Date dt=new Date();
         System.out.println("Data atual: " + dt.toString());
 
