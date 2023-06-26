@@ -4,6 +4,7 @@
  */
 package banco.conta;
 
+import banco.conta.Conta.ValorInvalidoException;
 import java.util.Scanner;
 
 /**
@@ -11,24 +12,22 @@ import java.util.Scanner;
  * @author italo
  */
 public class Banco {
-    private static double saldo = 0;
-
     public static void main(String[] args) {
+        Conta conta = new Conta();
+
         Scanner scan = new Scanner(System.in);
 
         System.out.println("Digite o valor que você deseja depositar: ");
         double deposito = scan.nextDouble();
 
-        calcular(deposito);
-    }
-
-    public static double calcular(double valor) {
-        if (valor <= 0) {
-            throw new IllegalArgumentException("Valor não pode ser menor do que zero");
-        } else {
-            saldo += valor;
+        try {
+            conta.deposito(deposito);
             System.out.println("Depósito realizado com sucesso");
+        } catch (ValorInvalidoException e) {
+            System.out.println("Erro ao realizar depósito: " + e.getMessage());
+            e.printStackTrace();
         }
-        return saldo;
     }
 }
+
+
