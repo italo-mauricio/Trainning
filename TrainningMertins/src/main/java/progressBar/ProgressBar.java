@@ -4,6 +4,7 @@
  */
 package progressBar;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 
 /**
@@ -13,13 +14,27 @@ import javax.swing.JFrame;
 public class ProgressBar {
     
     private JFrame mainFrame;
+    private JButton startButton;
     
     ProgressBar(){
-        mainFrame = new JFrame("Progress Bar Exemple")
+        mainFrame = new JFrame("Progress Bar Exemple");
+        mainFrame.setSize(600, 400);
+        mainFrame.setLayout(null);
+        mainFrame.setDefaultCloseOperation(3);
+
+        
+        startButton = new JButton("Start");
+        startButton.setBounds(50, 50, 100,50);
+        mainFrame.add(startButton);
+        
+        
+        
+        mainFrame.setVisible(true);
+                
     }
     
     public static void main(String[] args) {
-        
+        new ProgressBar();
     }
     
     private class Task extends Thread{
