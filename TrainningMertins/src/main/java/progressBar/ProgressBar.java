@@ -4,8 +4,12 @@
  */
 package progressBar;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JProgressBar;
 
 /**
  *
@@ -15,6 +19,7 @@ public class ProgressBar {
     
     private JFrame mainFrame;
     private JButton startButton;
+    private JProgressBar progressBar;
     
     ProgressBar(){
         mainFrame = new JFrame("Progress Bar Exemple");
@@ -25,10 +30,19 @@ public class ProgressBar {
         
         startButton = new JButton("Start");
         startButton.setBounds(50, 50, 100,50);
+        startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                JOptionPane.showMessageDialog(null, "Teste");
+            }
+        });
+        
+        progressBar = new JProgressBar(0, 100);
+        progressBar.setBounds(50, 150, 500, 50);
+        
+        
+        mainFrame.add(progressBar);
         mainFrame.add(startButton);
-        
-        
-        
         mainFrame.setVisible(true);
                 
     }
