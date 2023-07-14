@@ -53,5 +53,17 @@ public class ProgressBar {
     
     private class Task extends Thread{
         
+        @Override
+        public void run(){
+            for (int i = 0; i < 100; i++) {
+                progressBar.setValue(i);
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                
+            }
+        }
     }
 }
