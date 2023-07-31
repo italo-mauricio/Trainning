@@ -17,5 +17,22 @@
         <input type="submit" value="Calcular">
     </form>
     <a href="log.html">Exibir Informações de Log</a>
+
+    <button onclick="obterInformacoesIp()">Obter Informações de IP</button>
+
+    <script>
+        function obterInformacoesIp() {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById("ipInfo").innerHTML = xhr.responseText;
+                }
+            };
+            xhr.open("GET", "http://localhost:8080/WebAplicationServ/ip", true);
+            xhr.send();
+        }
+    </script>
+
+    <div id="ipInfo"></div>
 </body>
 </html>

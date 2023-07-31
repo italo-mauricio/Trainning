@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Obter Informações de IP</title>
+</head>
+<body>
+    <h1>Obter Informações de IP</h1>
+
+    <button onclick="obterInformacoes()">Obter Informações</button>
+
+    <script>
+        function obterInformacoes() {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById("result").innerHTML = xhr.responseText;
+                }
+            };
+            xhr.open("GET", "http://localhost:8080/minhaaplicacao/ip", true);
+            xhr.send();
+        }
+    </script>
+
+    <div id="result"></div>
+</body>
+</html>
