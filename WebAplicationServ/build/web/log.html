@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exemplo de Requisição ao Servlet</title>
+</head>
+<body>
+    <h1>Exemplo de Requisição ao Servlet</h1>
+
+    <button onclick="enviarRequisicao()">Enviar Requisição ao Servlet</button>
+
+    <script>
+         function enviarRequisicao() {
+            // Criar um objeto XMLHttpRequest para fazer a requisição ao servlet
+            var xhr = new XMLHttpRequest();
+
+            // Configurar a função de callback para tratar a resposta do servlet
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    // Exibir a resposta do servlet na console do navegador
+                    console.log(xhr.responseText);
+                }
+            };
+
+            // Abrir a requisição GET para o servlet MyServlet
+            xhr.open("GET", "http://localhost:8080/WebAplicationServ/my", true);
+
+            // Enviar a requisição
+            xhr.send();
+        }
+    </script>
+</body>
+</html>
+
+
+
